@@ -15,7 +15,7 @@ class Layer
         let out=[];
         for(let i=0;i<this.perceptrons.length;i++)
         {
-            out.push(this.perceptrons[i].getOutput(inputs));
+            out.push(new Input(this.perceptrons[i].getOutput(inputs),1));
         }
         return out;
     }

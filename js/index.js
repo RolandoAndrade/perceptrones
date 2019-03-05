@@ -27,3 +27,11 @@ let pXOR2=new Perceptron(-1.5, new InverseStep());
                     new Input(pXOR2.getOutput([new Input(inputs[i][0],1),
                         new Input(inputs[i][1],1)]),1)
             ]));
+console.log("NETWORK XOR");
+let inputLayer=new Layer([pXOR1,pXOR2]);
+let outputLayer=new Layer([pAND]);
+let network=new Network(inputLayer,outputLayer);
+    for(let i=0;i<4;i++)
+        console.log(inputs[i][0]+" XOR "+inputs[i][1]+" = "+
+            network.getOutput([new Input(inputs[i][0],1),
+            new Input(inputs[i][1],1)]));

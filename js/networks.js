@@ -1,8 +1,8 @@
 class Layer
 {
-    constructor()
+    constructor(perceptrons)
     {
-        this.perceptrons = [];
+        this.perceptrons = perceptrons||[];
     }
 
     add(perceptron)
@@ -35,12 +35,13 @@ class Network
         this.hiddenLayers.add(layer);
     }
 
-    getOutput()
+    getOutput(inputs)
     {
-        let inputs=this.inputLayer.getOutput(this.inputLayer);
+        inputs=this.inputLayer.getOutput(inputs);
         for(let i=0;i<this.hiddenLayers.length;i++)
         {
-
+            inputs=this.hiddenLayers[i].getOutput(inputs);
         }
+        return this.outputLayer.getOutput(inputs)[0].input;
     }
 }
